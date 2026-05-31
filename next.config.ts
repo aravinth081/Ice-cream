@@ -1,12 +1,6 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // Turbopack-kku root path-a namma define pannidalam
-  experimental: {
-    turbopack: {
-      root: "../../",
-    },
-  },
   images: {
     remotePatterns: [
       {
