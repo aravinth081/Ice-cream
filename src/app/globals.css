@@ -1,0 +1,281 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-outfit), ui-sans-serif, system-ui;
+  --font-serif: var(--font-cormorant), Georgia, serif;
+
+  /* Brand Colors — exact spec from brief */
+  --color-brand-primary: #111111;
+  --color-brand-secondary: #555555;
+  --color-accent-gold: #D4AF37;
+  --color-accent-cream: #FFF8EE;
+  --color-accent-lightbeige: #F8F4EE;
+  --color-border-luxury: #EAEAEA;
+  --color-success: #22C55E;
+  --color-bg-secondary: #FAFAFA;
+}
+
+:root {
+  --background: #FFFFFF;
+  --foreground: #111111;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  overflow-x: hidden;
+}
+
+/* Premium Luxury Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FAFAFA;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D4AF37;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #B8962E;
+}
+
+/* Lenis Custom Smooth Scrolling Integration */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overflow: clip;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* ========================================
+   LUXURY GLASS EFFECTS
+   ======================================== */
+
+.glass-header {
+  background-color: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(24px) saturate(1.8);
+  -webkit-backdrop-filter: blur(24px) saturate(1.8);
+  border-bottom: 1px solid rgba(234, 234, 234, 0.6);
+}
+
+.glass-card {
+  background-color: rgba(255, 248, 238, 0.45);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(234, 234, 234, 0.7);
+}
+
+/* ========================================
+   PREMIUM TEXT GRADIENTS
+   ======================================== */
+
+.text-gold-gradient {
+  background: linear-gradient(135deg, #9A7B1A 0%, #D4AF37 30%, #F0D980 55%, #D4AF37 75%, #9A7B1A 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block;
+}
+
+/* ========================================
+   LUXURY LINK HOVER UNDERLINE
+   ======================================== */
+
+.luxury-link-hover {
+  position: relative;
+}
+
+.luxury-link-hover::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: #D4AF37;
+  transition: width 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.luxury-link-hover:hover::after {
+  width: 100%;
+}
+
+/* ========================================
+   PREMIUM ANIMATIONS
+   ======================================== */
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes float-slow {
+
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+
+  33% {
+    transform: translateY(-8px) rotate(2deg);
+  }
+
+  66% {
+    transform: translateY(-15px) rotate(-1deg);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+
+  100% {
+    background-position: 200% center;
+  }
+}
+
+@keyframes pulse-gold {
+
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.15);
+  }
+
+  50% {
+    box-shadow: 0 0 0 12px rgba(212, 175, 55, 0);
+  }
+}
+
+@keyframes infinite-scroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Animation Utility Classes */
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-slow {
+  animation: float-slow 8s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  background-size: 200% auto;
+  animation: shimmer 3s linear infinite;
+}
+
+.animate-pulse-gold {
+  animation: pulse-gold 2.5s ease-in-out infinite;
+}
+
+.animate-infinite-scroll {
+  animation: infinite-scroll 25s linear infinite;
+  display: flex;
+  width: max-content;
+  align-items: center;
+}
+
+/* ========================================
+   PREMIUM SELECTION STYLES
+   ======================================== */
+
+::selection {
+  background: rgba(212, 175, 55, 0.15);
+  color: #111111;
+}
+
+::-moz-selection {
+  background: rgba(212, 175, 55, 0.15);
+  color: #111111;
+}
+
+/* ========================================
+   SMOOTH FOCUS STATES
+   ======================================== */
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: #D4AF37 !important;
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.08);
+  transition: all 0.3s ease;
+}
+
+/* ========================================
+   LUXURY BUTTON MAGNETIC EFFECT
+   ======================================== */
+
+.btn-magnetic {
+  transition: transform 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.btn-magnetic:hover {
+  transform: translateY(-1px);
+}
+
+.btn-magnetic:active {
+  transform: translateY(0px);
+}
+
+/* Force hide Next.js Dev Indicator */
+[data-nextjs-toast] {
+  display: none !important;
+}
